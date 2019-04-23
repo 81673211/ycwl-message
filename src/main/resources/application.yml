@@ -1,0 +1,34 @@
+server:
+  port: 8902
+
+spring:
+  application:
+    name: ycwl-message-service
+  profiles:
+    active: dev
+
+eureka:
+  instance:
+    hostname: ${spring.application.name}
+  client:
+    service-url:
+      defaultZone: http://localhost:20881/eureka/
+
+sms:
+  signName: 悦宠未来
+  provider: aliyun
+#  provider: other
+  template:
+    aliyun:
+      verifyCode:
+        id: SMS_134329837
+        params:
+          code
+    other:
+      verifyCode:
+        id: xxx
+        paramNames:
+          name
+  aliyun:
+    accessKeyId: LTAI2bi1Ssji3zIS
+    accessKeySecret: anTS8ZEETMItdu0BP4mdbW8DBhfsse
