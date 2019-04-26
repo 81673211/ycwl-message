@@ -1,5 +1,7 @@
 package com.fred.ycwl.message.exception;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,9 +20,12 @@ import com.fred.ycwl.common.web.ResponseCode;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
     @ResponseBody
     @ExceptionHandler(value = Exception.class)
     public Response handle(Exception e) {
+        LOGGER.warn("global error, reason:{}", e.getMessage());
         Response response;
         if (e instanceof BusinessException) {
             BusinessException businessException = (BusinessException) e;
