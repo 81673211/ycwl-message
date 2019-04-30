@@ -6,6 +6,6 @@ spring:
   cloud:
     config:
       profile: ${spring.profiles.active}
-      uri: http://www.glove1573:8777
+      uri: http://www.glove1573.cn:8777
 
 
