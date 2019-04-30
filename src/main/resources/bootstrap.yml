@@ -2,7 +2,7 @@ spring:
   profiles:
     active: @env@
   application:
-    name: ycwl-message-service
+    name: ycwl-message
   cloud:
     config:
       profile: ${spring.profiles.active}
